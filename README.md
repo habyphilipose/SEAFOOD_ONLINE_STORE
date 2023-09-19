@@ -31,7 +31,7 @@ In this case study we are required to analyse the dataset of a seafood online st
 
 ## A. DIGITAL ANALYSIS
 ### 1. How many users are there?
-SELECT COUNT(DISTINCT user_id) AS Total_users
+SELECT COUNT(DISTINCT user_id) AS Total_users <br>
 FROM `SEAFOOD_ONLINE_STORE.users`
 
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/4f7b7982-cd32-4cbb-ac43-265ca63f1afd)
