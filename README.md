@@ -1,2 +1,15 @@
 # SEAFOOD_ONLINE_STORE
 SQL PROJECT 
+
+SDJN'
+
+DSC 
+C 
+C A
+C 
+S SC ;
+DQ
+
+DC
+D 
+![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/c63b4e44-12c9-4239-b8c9-d6641204f831)
