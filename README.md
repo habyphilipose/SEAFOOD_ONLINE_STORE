@@ -290,7 +290,7 @@ FROM product_info
 
 ## Campaign's Analysis
 ### Generate a table that has 1 single row for every unique visit_id record and has the following columns:
-•	user_id <br>
+•	user_id <be>
 •	visit_id
 •	visit_start_time: the earliest event_time for each visit
 •	page_views: count of page views for each visit
