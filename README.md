@@ -33,7 +33,7 @@ In this case study we are required to analyse the dataset of a seafood online st
 ### 1. How many users are there?
 
 ```sql
-SELECT COUNT(DISTINCT user_id) AS Total_users <br>
+SELECT COUNT(DISTINCT user_id) AS Total_users 
 FROM `SEAFOOD_ONLINE_STORE.users`
 ```
 
@@ -42,12 +42,12 @@ FROM `SEAFOOD_ONLINE_STORE.users`
 ### 2. How many cookies does each user have on average?
 
 ```sql
-WITH cte AS (SELECT user_id,COUNT(cookie_id) AS cookie_id_count <br>
-             FROM `SEAFOOD_ONLINE_STORE.users` <br>
-             GROUP BY user_id) <br> <br>
+WITH cte AS (SELECT user_id,COUNT(cookie_id) AS cookie_id_count 
+             FROM `SEAFOOD_ONLINE_STORE.users` 
+             GROUP BY user_id) 
 
-SELECT ROUND(AVG(cookie_id_count),2) AS avg_cookie_per_user <br>
-FROM cte <be>
+SELECT ROUND(AVG(cookie_id_count),2) AS avg_cookie_per_user 
+FROM cte 
 ```
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/0bcbeda6-870f-459c-926c-cce6efb31dc7)
 
