@@ -252,7 +252,81 @@ WHERE purchase =(SELECT MAX(purchase) FROM product_info);
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/d092e344-7064-413b-98a6-8ab899a94b08)
 
 ###  A-2) Which product was most likely to be abandoned?
+```sql
+SELECT 
+page_name AS most_likely_abandoned 
+FROM product_info
+WHERE Abandoned =(SELECT  MAX(Abandoned) FROM product_info);
+```
+![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/647cb023-e2d3-4578-b635-e8bda80ff94e)
 
+### A-3) Which product has highest purchase-to-view percentage?
 
+```sql
+SELECT
+page_name, CONCAT(ROUND( 100.0*(purchase/Page_views),2), '%') AS View_purchase_percentage
+FROM product_info
+ORDER BY 2 DESC 
+LIMIT 1
+```
+![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/f8bf7c05-d31d-497c-b239-fab3c653b55b)
 
+### A-4) What is the AVERAGE CONVERSION RATE  from view to cart add?
+
+```sql
+SELECT
+ROUND(AVG(100.0*(Added_to_cart/Page_views)),2) as Avg_conversion_rate 
+FROM product_info
+```
+![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/6a325ce9-5e4f-4aee-b048-1bcbb3120c53)
+
+### A-5) What is the AVERAGE CONVERSION RATE  from cart add to purchase?
+```sql
+SELECT 
+ROUND(AVG(100.0*(purchase/Added_to_cart)),2) as Avg_conversion_rate 
+FROM product_info
+```
+![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/5bcac18f-87d4-4323-9da6-03a687fe7e77)
+
+## Campaign's Analysis
+### Generate a table that has 1 single row for every unique visit_id record and has the following columns:
+•	user_id
+•	visit_id
+•	visit_start_time: the earliest event_time for each visit
+•	page_views: count of page views for each visit
+•	cart_adds: count of product cart add events for each visit
+•	purchase: 1/0 flag if a purchase event exists for each visit
+•	campaign_name: map the visit to a campaign if the visit_start_time falls between the start_date and end_date
+•	impression: count of ad impressions for each visit
+•	click: count of ad clicks for each visit
+•	(Optional column) cart_products: a comma separated text value with products added to the cart sorted by the order they were added to the cart (hint: use the sequence_number)
+```sql
+SELECT 
+    user_id,
+    visit_id,
+    MIN(e.event_time) AS visit_start_time,
+    COUNT(CASE WHEN event_type = 1 THEN visit_id END) AS Page_views,
+    COUNT(CASE WHEN event_type = 2 THEN visit_id END) AS Cart_adds,
+    COUNT(CASE WHEN event_type = 3 THEN visit_id END) AS Purchase,
+    CASE WHEN u.start_date BETWEEN ci.start_date AND ci.end_date THEN ci.campaign_name END AS Campaign_name,
+    COUNT(CASE WHEN e.event_type = 4 THEN e.visit_id END) AS Impression,
+    COUNT(CASE WHEN e.event_type = 5 THEN e.visit_id END) AS Click,
+    STRING_AGG(CASE WHEN event_type = 2 AND product_id IS NOT NULL THEN Page_name ELSE NULL END,','
+        ORDER BY e.sequence_number) AS cart_products
+FROM
+    'SEAFOOD_ONLINE_STORE.users' AS u
+        JOIN
+    'SEAFOOD_ONLINE_STORE.events' AS e 
+    ON u.cookie_id = e.cookie_id
+        JOIN
+    'SEAFOOD_ONLINE_STORE.campaign_identifier' AS ci 
+    ON e.event_time BETWEEN ci.start_date AND ci.end_date
+        JOIN
+    'SEAFOOD_ONLINE_STORE.page_hierarchy' AS ph 
+    ON ph.page_id = e.page_id
+GROUP BY e.visit_id
+ORDER BY user_id
+```
+
+![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/eb0103ae-fc00-47e2-8c22-93284df9f09a)
 
