@@ -31,6 +31,7 @@ In this case study we are required to analyse the dataset of a seafood online st
 
 ## A. DIGITAL ANALYSIS
 ### 1. How many users are there?
+
 ```` sql 
 SELECT COUNT(DISTINCT user_id) AS Total_users <br>
 FROM `SEAFOOD_ONLINE_STORE.users`
@@ -57,6 +58,15 @@ GROUP BY EXTRACT(month FROM event_time); <br>
 
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/fdfe2a3c-4c1f-40d7-b522-8a454d0d8309)
 
+
+```sql
+SET
+  SEARCH_PATH = clique_bait;
+SELECT
+  COUNT(distinct user_id) AS number_of_users
+FROM
+  users
+```
 
 
 
