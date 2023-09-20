@@ -60,8 +60,7 @@ GROUP BY EXTRACT(month FROM event_time); <br>
 
 
 ```sql
-SET
-  SEARCH_PATH = clique_bait;
+
 SELECT
   COUNT(distinct user_id) AS number_of_users
 FROM
