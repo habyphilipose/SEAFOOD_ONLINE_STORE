@@ -32,15 +32,16 @@ In this case study we are required to analyse the dataset of a seafood online st
 ## A. DIGITAL ANALYSIS
 ### 1. How many users are there?
 
-```` sql 
+```sql
 SELECT COUNT(DISTINCT user_id) AS Total_users <br>
 FROM `SEAFOOD_ONLINE_STORE.users`
-````
+```
 
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/4f7b7982-cd32-4cbb-ac43-265ca63f1afd)
 
 ### 2. How many cookies does each user have on average?
 
+```sql
 WITH cte AS (SELECT user_id,COUNT(cookie_id) AS cookie_id_count <br>
              FROM `SEAFOOD_ONLINE_STORE.users` <br>
              GROUP BY user_id) <br> <br>
@@ -48,23 +49,20 @@ WITH cte AS (SELECT user_id,COUNT(cookie_id) AS cookie_id_count <br>
 SELECT ROUND(AVG(cookie_id_count),2) AS avg_cookie_per_user <br>
 FROM cte <br>
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/0bcbeda6-870f-459c-926c-cce6efb31dc7)
+```
 
 ### 3. What is the unique number of visits by all users per month?
 
+```sql
 SELECT EXTRACT(month FROM event_time) AS month, <br>
        COUNT(DISTINCT visit_id) AS unique_visit_count <br>
 FROM `SEAFOOD_ONLINE_STORE.events' <br>
 GROUP BY EXTRACT(month FROM event_time); <br>
-
+```
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/fdfe2a3c-4c1f-40d7-b522-8a454d0d8309)
 
 
-```sql
-SELECT
-  COUNT(distinct user_id) AS number_of_users
-FROM
-  users
-```
+
 
 
 
