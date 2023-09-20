@@ -60,7 +60,6 @@ GROUP BY EXTRACT(month FROM event_time); <br>
 
 
 ```sql
-
 SELECT
   COUNT(distinct user_id) AS number_of_users
 FROM
