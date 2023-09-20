@@ -47,9 +47,10 @@ WITH cte AS (SELECT user_id,COUNT(cookie_id) AS cookie_id_count <br>
              GROUP BY user_id) <br> <br>
 
 SELECT ROUND(AVG(cookie_id_count),2) AS avg_cookie_per_user <br>
-FROM cte <br>
-![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/0bcbeda6-870f-459c-926c-cce6efb31dc7)
+FROM cte <be>
 ```
+![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/0bcbeda6-870f-459c-926c-cce6efb31dc7)
+
 
 ### 3. What is the unique number of visits by all users per month?
 
