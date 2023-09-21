@@ -6,7 +6,7 @@ In this case study we are required to analyse the dataset of a seafood online st
 ## 📚 Table of Contents
 - [Entity Relationship Diagram](#entity-relationship-diagram)
 - [Sample Tables](#sample-tables)
-- [CASE STUDY ANALYSIS](#case-study-analysis)
+- [Case Study Analysis](#case-study-analysis)
 
 # Entity Relationship Diagram
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/26d528e6-a199-4feb-833f-c2bf70631661)
@@ -23,7 +23,7 @@ In this case study we are required to analyse the dataset of a seafood online st
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/acbdc61f-4c2b-4789-9dc0-235e7cc6e164)
 
 
-### Table: event_identifier
+### Table: event_identifier 
 
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/2a502a91-0b49-45da-a901-646a7f4119ce)
 
@@ -37,7 +37,7 @@ In this case study we are required to analyse the dataset of a seafood online st
 
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/25d6fad3-5817-46b9-ac71-27ead972c93f)
 
-# CASE STUDY ANALYSIS
+# Case Study Analysis
 
 ## A. DIGITAL ANALYSIS
 ### 1. How many users are there?
