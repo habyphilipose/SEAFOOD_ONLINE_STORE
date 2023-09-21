@@ -2,6 +2,11 @@
 SQL PROJECT 
 
 In this case study we are required to analyse the dataset of a seafood online store and come up with creative solutions to calculate funnel fallout rates. 
+
+## 📚 Table of Contents
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Question and Solution](#question-and-solution)
+
 # Entity Relationship Diagram
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/26d528e6-a199-4feb-833f-c2bf70631661)
 
