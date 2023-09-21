@@ -72,6 +72,9 @@ GROUP BY EXTRACT(month FROM event_time);
 ```
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/fdfe2a3c-4c1f-40d7-b522-8a454d0d8309)
 
+Tracking the unique number of visits by all users per month is a valuable metric for assessing the `performance` of your online store, `understanding customer behavior`, and `optimizing` various aspects of your business. `Identifying trends` and `customer segmentation` can also be done.
+By leveraging this metric effectively, you can make `data-driven decisions` to enhance the impact and success of your online store. 
+
 
 ### 4.	What is the number of events for each event type?
 ```sql
@@ -81,6 +84,11 @@ GROUP BY event_type
 ORDER BY event_type;
 ```
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/89f4e700-c773-4a83-bc27-f2ff833d86a8)
+
+`Event type 1 = “Page View” ` and `Event type 2 = “Add to Cart” ` happened most of the time. This means that `CONVERSION ` of Add to Cart TO PURCHASE is not happening from the customers. 
+This should be rectified to improve the business
+Below 3 Questions focuses on the `CONVERSION RATE`
+
 
 ### 5.	What is the percentage of visits which have a purchase event?
 
@@ -110,7 +118,7 @@ FROM cte
 
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/5efaac4a-2609-4886-86a3-cb2855bd11e6)
 
-
+Here we  calculate the `abandonment rate` for the checkout process. To improve this we can highlight the need to optimize the checkout process, reduce friction, and potentially implement retargeting strategies to recover lost sales.
 ### 7.	What are the top 3 pages by number of views ?
 
 ```sql
@@ -199,7 +207,14 @@ ON b.purchase_id = a.cart_id
 GROUP BY 1 
 ORDER BY COUNT(b.purchase_id) DESC;
 ```
+
+For Purchase (event_type = 3) we created separate CTE. Because ‘Page view’ and ‘Add to Cart’ is not applicable for Home Page and All products page where product_id is NULL. But ‘Purchase’ event should be calculated on ‘events’ table regardless of what ‘page hierarchy’ table is. 
+Left join is done on the main table. Because we want all products in Cart and only products that are purchased from cart. 
+
+
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/962e8551-57a1-4044-af9d-5cefa586deaf)
+
+This `summarized table` gives an overall picture of each page. Thus, we can prioritize the focus on pages with `more abandonment` and `reduce the friction` there. Solution to `increase Page_view to Add to cart` should also be focused upon
 
 ### A-1) Which product had the most views, cart adds and purchases?
 ```sql
@@ -270,6 +285,8 @@ WHERE Abandoned =(SELECT  MAX(Abandoned) FROM product_info);
 ```
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/647cb023-e2d3-4578-b635-e8bda80ff94e)
 
+People is not preferring this fish. Thus `cutting of this product from the list` is necessary to `maximize profit`. This may `reduce the unnecessary wastage` of company money and resources. This focus can be diverted to pages which gives `more turnover` for the company.
+
 ### A-3) Which product has highest purchase-to-view percentage?
 
 ```sql
@@ -281,6 +298,8 @@ LIMIT 1
 ```
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/f8bf7c05-d31d-497c-b239-fab3c653b55b)
 
+More promotional offers and different varieties of this product will attract more revenue to the company.
+
 ### A-4) What is the AVERAGE CONVERSION RATE  from view to cart add?
 
 ```sql
@@ -289,6 +308,8 @@ ROUND(AVG(100.0*(Added_to_cart/Page_views)),2) as Avg_conversion_rate
 FROM product_info
 ```
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/6a325ce9-5e4f-4aee-b048-1bcbb3120c53)
+
+A 61% conversion rate from view to cart add is a `positive sign` for a seafood online company, indicating `strong customer interest` and effective website and marketing strategies. To maintain and build on this success, it's essential to `continually monitor` and optimize various aspects of the e-commerce operation.
 
 ### A-5) What is the AVERAGE CONVERSION RATE  from cart add to purchase?
 ```sql
@@ -340,3 +361,4 @@ ORDER BY user_id
 
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/eb0103ae-fc00-47e2-8c22-93284df9f09a)
 
+This table is a valuable resource for analyzing user behavior, tracking the effectiveness of marketing campaigns, and understanding the customer journey on the website or platform. By aggregating this data at the visit level, you can `gain insights` into `which campaigns are driving visits, how users interact with the site, and how often visits lead to purchases. This information can inform marketing strategies, website optimization, and overall business decision-making.`
