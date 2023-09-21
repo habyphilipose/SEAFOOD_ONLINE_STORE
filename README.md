@@ -5,10 +5,13 @@ In this case study we are required to analyse the dataset of a seafood online st
 
 ## 📚 Table of Contents
 - [Entity Relationship Diagram](#entity-relationship-diagram)
-- [Question and Solution](#question-and-solution)
+- [Sample Tables](#sample-tables)
+- [A. DIGITAL ANALYSIS](#a.-digital-analysis)
 
 # Entity Relationship Diagram
 ![image](https://github.com/habyphilipose/SEAFOOD_ONLINE_STORE/assets/31076902/26d528e6-a199-4feb-833f-c2bf70631661)
+
+# Sample Tables 
 
 ### Table: users
 
